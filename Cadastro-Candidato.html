@@ -5,9 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="Cadastro.css" />
   <title>Cadastro - KatuJobs</title>
+  <script src="Cadastro-Geral.js"></script>
+  
 </head>
 <body>
-  <h1>Registrar Empresa</h1>
+  <h1>Cadastrar Candidato</h1>
   <form id="formCadastro">
 
     <label>Nome:</label><br />
@@ -23,32 +25,6 @@
     
   </form>
 
-  <script>
-    const form = document.getElementById('formCadastro');
-
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-
-      const nome = document.getElementById('nome').value.trim();
-      const email = document.getElementById('email').value.trim();
-      const senha = document.getElementById('senha').value.trim();
-
-      if (!nome || !email || !senha) {
-        alert('Por favor, preencha todos os campos!');
-        return;
-      }
-
-      const usuario = {
-        nome,
-        email,
-        senha,
-      };
-
-      localStorage.setItem('usuario', JSON.stringify(usuario));
-
-      window.location.href = 'index.html';
-    });
-  </script>
 </body>
 </html>
 

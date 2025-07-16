@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Painel da Empresa - KatuJobs</title>
   <link rel="stylesheet" href="estilo.css">
+  <script src="Painel-Empresa.js"></script>
 </head>
 <body>
 
@@ -28,50 +29,6 @@
 
   <h2 style="text-align:center; margin-top: 30px;">Vagas Publicadas</h2>
   <div id="listaVagas" class="vagas-container"></div>
-
-<script>
-  function carregarVagas() {
-    const vagas = JSON.parse(localStorage.getItem('vagas')) || [];
-    const lista = document.getElementById('listaVagas');
-    lista.innerHTML = '';
-
-    if (vagas.length === 0) {
-      lista.innerHTML = '<p style="text-align:center;">Nenhuma vaga cadastrada ainda.</p>';
-    } else {
-      vagas.forEach(vaga => {
-        const div = document.createElement('div');
-        div.className = 'vaga';
-        div.innerHTML = `
-          <h3>${vaga.titulo}</h3>
-          <p>${vaga.descricao}</p>
-          <p><strong>Salário:</strong> ${vaga.salario}</p>
-        `;
-        lista.appendChild(div);
-      });
-    }
-  }
-
-  const form = document.getElementById('formVaga');
-  form.addEventListener('submit', function(e){
-    e.preventDefault();
-
-    const titulo = document.getElementById('titulo').value;
-    const descricao = document.getElementById('descricao').value;
-    const salario = document.getElementById('salario').value;
-
-    const novaVaga = { titulo, descricao, salario };
-
-    const vagas = JSON.parse(localStorage.getItem('vagas')) || [];
-    vagas.push(novaVaga);
-    localStorage.setItem('vagas', JSON.stringify(vagas));
-
-    alert('Vaga cadastrada com sucesso!');
-    form.reset();
-    carregarVagas();
-  });
-
-  carregarVagas();
-</script>
 
 <style> 
 body {
