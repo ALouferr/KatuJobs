@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Painel da Empresa - KatuJobs</title>
+  <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+
+  <!-- Botões de navegação -->
+  <div class="nav-buttons">
+    <a href="index.html" class="nav-btn">Ver Vagas (Index)</a>
+    <a href="painel-empresa.html" class="nav-btn">Painel da Empresa</a>
+  </div>
+
+  <header>
+    <h1>Painel da Empresa</h1>
+    <p>Cadastre novas vagas de emprego e visualize suas vagas cadastradas</p>
+  </header>
+
+  <form id="formVaga">
+    <input type="text" id="titulo" placeholder="Título da vaga" required><br><br>
+    <textarea id="descricao" placeholder="Descrição da vaga" required></textarea><br><br>
+    <input type="text" id="salario" placeholder="Salário" required><br><br>
+    <button type="submit">Cadastrar Vaga</button>
+  </form>
+
+  <h2 style="text-align:center; margin-top: 30px;">Vagas Publicadas</h2>
+  <div id="listaVagas" class="vagas-container"></div>
+
+<script>
+  function carregarVagas() {
+    const vagas = JSON.parse(localStorage.getItem('vagas')) || [];
+    const lista = document.getElementById('listaVagas');
+    lista.innerHTML = '';
+
+    if (vagas.length === 0) {
+      lista.innerHTML = '<p style="text-align:center;">Nenhuma vaga cadastrada ainda.</p>';
+    } else {
+      vagas.forEach(vaga => {
+        const div = document.createElement('div');
+        div.className = 'vaga';
+        div.innerHTML = `
+          <h3>${vaga.titulo}</h3>
+          <p>${vaga.descricao}</p>
+          <p><strong>Salário:</strong> ${vaga.salario}</p>
+        `;
+        lista.appendChild(div);
+      });
+    }
+  }
+
+  const form = document.getElementById('formVaga');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+
+    const titulo = document.getElementById('titulo').value;
+    const descricao = document.getElementById('descricao').value;
+    const salario = document.getElementById('salario').value;
+
+    const novaVaga = { titulo, descricao, salario };
+
+    const vagas = JSON.parse(localStorage.getItem('vagas')) || [];
+    vagas.push(novaVaga);
+    localStorage.setItem('vagas', JSON.stringify(vagas));
+
+    alert('Vaga cadastrada com sucesso!');
+    form.reset();
+    carregarVagas();
+  });
+
+  carregarVagas();
+</script>
+
+<style> 
+body {
+  font-family: Arial, sans-serif;
+  background: #f0f2f5;
+  margin: 0;
+  padding: 20px;
+}
+
+header {
+  text-align: center;
+  background-color: #ff7f50;
+  color: white;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 30px;
+}
+
+form, .vagas-container {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 600px;
+  margin: auto;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+input, textarea, button {
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+button {
+  background-color: #ff7f50;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #e66430;
+}
+
+.vaga {
+  background: #f9f9f9;
+  margin-bottom: 15px;
+  padding: 15px;
+  border-radius: 6px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.nav-buttons {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 1000;
+}
+
+.nav-btn {
+  text-decoration: none;
+  padding: 10px 10px;
+  background-color: #ff7f50;
+  color: white;
+  font-weight: bold;
+  border-radius: 8px;
+  box-shadow: 0 4px 4px rgba(0,0,0,0.2);
+  transition: background-color 0.3s;
+  text-align: center;
+}
+
+.nav-btn:hover {
+  background-color: #e66430;
+}
+</style>
+
+</body>
+</html>

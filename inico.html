@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>KatuJobs - Bem-vindo</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Bem-vindo ao KatuJobs</h1>
+    <p>Escolha seu perfil para começar</p>
+
+    <div class="buttons">
+      <a href="Cadastro-Candidato.html" class="btn btn-candidato">Sou Candidato</a>
+      <a href="cadastro-empresa.html" class="btn btn-empresa">Sou Empresa</a>
+    </div>
+  </div>
+  <Style>
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Corpo e container */
+body {
+  background: linear-gradient(135deg, #ff7f50, #ff4500);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  color: white;
+}
+
+.container {
+  background: rgba(0, 0, 0, 0.55);
+  padding: 40px 60px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  max-width: 400px;
+  width: 100%;
+}
+
+/* Título */
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+/* Descrição */
+p {
+  margin-bottom: 30px;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+/* Botões */
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.btn {
+  flex: 1;
+  padding: 15px 0;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  user-select: none;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.btn-candidato {
+  background-color: #ff7f50;
+}
+
+.btn-candidato:hover {
+  background-color: #e6683c;
+}
+
+.btn-empresa {
+  background-color: #ffa500;
+}
+
+.btn-empresa:hover {
+  background-color: #cc8400;
+}
+
+/* Responsivo */
+@media(max-width: 400px) {
+  .buttons {
+    flex-direction: column;
+  }
+  
+  .btn {
+    margin-bottom: 15px;
+  }
+}
+
+  </Style>
+</body>
+</html>

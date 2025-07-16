@@ -1,0 +1,122 @@
+/* Reset básico */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Corpo da página */
+body {
+  background: #f0f2f5;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 40px;
+}
+
+
+/* Caixa do formulário */
+form {
+  background: #fff;
+  padding: 40px 40px;
+  border-radius: 10px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  width: 100%;
+  max-width: 400px;
+  position: absolute;
+}
+
+/* Título */
+h1 {
+  text-align: center;
+  margin-bottom: auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: auto;
+  
+  color: #ff5e00;
+}
+
+/* Inputs e labels */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 12px 15px;
+  margin-top: 4px;
+  margin-bottom: 10;
+  border: 1.8px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+  border-color: #ff7f50;
+  outline: none;
+}
+
+/* Labels estilizadas */
+label {
+  font-weight: 600;
+  color: #555;
+}
+
+/* Botão */
+button {
+  width: 100%;
+  padding: 14px 0;
+  background-color: #ff7f50;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-weight: 700;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #ff5722;
+}
+
+/* Espaçamento */
+br + label {
+  margin-top: 10px;
+}
+
+/* Mensagem de erro ou sucesso */
+.mensagem {
+  text-align: center;
+  margin-top: 15px;
+  font-weight: 600;
+  color: #4caf50;
+}
+
+form#formCadastro_emp {
+
+  background: #fff;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  width: 100%;
+  max-width: 400px;
+  position: absolute;
+  top: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+
+}
+
+h1#EMP {
+  text-align: center;
+  margin: 20px auto;
+  color: #ff5e00;
+}
+
+
