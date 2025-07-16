@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>KatuJobs - Vagas Disponíveis</title>
   <link rel="stylesheet" href="estilo.css">
+  <script src="Principal.js"></script>
 </head>
 <body>
   <header>
@@ -16,30 +17,7 @@
     <!-- Vagas serão carregadas aqui -->
   </div>
 
-<script>
-  function carregarVagas() {
-    const vagas = JSON.parse(localStorage.getItem('vagas')) || [];
-    const container = document.getElementById('vagasContainer');
-    container.innerHTML = '';
 
-    if (vagas.length === 0) {
-      container.innerHTML = '<p>Sem vagas cadastradas no momento.</p>';
-    } else {
-      vagas.forEach(vaga => {
-        const div = document.createElement('div');
-        div.className = 'vaga';
-        div.innerHTML = `
-          <h3>${vaga.titulo}</h3>
-          <p>${vaga.descricao}</p>
-          <p><strong>Salário:</strong> ${vaga.salario}</p>
-        `;
-        container.appendChild(div);
-      });
-    }
-  }
-
-  carregarVagas();
-</script>
 </body>
 </html>
 
